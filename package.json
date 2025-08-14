@@ -20,6 +20,10 @@
     "deploy-ssh": "rm -rf public && yarn run build && GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa.pub -o IdentitiesOnly=yes' gh-pages -d public -b gh-pages -r git@github.com:benediktkreis/granular_rl.git",
     "staging": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages"
   },
+  "resolutions": {
+    "glob": "7.2.3",
+    "minimatch": "9.0.4"
+  },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
     "@react-three/drei": "9.77.0",
@@ -32,7 +36,7 @@
     "flowbite": "^1.7.0",
     "flowbite-react": "^0.4.7",
     "flowbite-typography": "^1.0.3",
-    "gatsby": "^3.3.1",
+    "gatsby": "^3.15.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-gtag": "^3.15.0",
     "gatsby-plugin-manifest": "^3.15.0",
@@ -48,8 +52,7 @@
     "react-multi-carousel": "^2.8.4",
     "tailwindcss": "^3.3.2",
     "three": "^0.150.0",
-    "d3-delaunay": "^6.0.4",
-    "yarn": "^1.22.22"
+    "d3-delaunay": "^6.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.27.1",
