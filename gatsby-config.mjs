@@ -3,7 +3,7 @@ import type {GatsbyConfig} from "gatsby";
 const config: GatsbyConfig = {
     siteMetadata: {
         title: `Interactive Shaping of Granular Media with Reinforcement Learning`,
-        siteUrl: `https://granular-rl.github.io/`,
+        siteUrl: `https://github.com/humanoidsbonn.github.io/granular_rl/`,
     },
     pathPrefix: "/",
     graphqlTypegen: true,

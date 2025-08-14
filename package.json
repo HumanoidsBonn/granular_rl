@@ -1,8 +1,8 @@
 {
-  "name": "granular-rl",
+  "name": "granular_rl",
   "version": "1.0.0",
   "private": true,
-  "description": "granular-rl",
+  "description": "granular_rl",
   "author": "Anonymous",
   "keywords": [
     "gatsby"
@@ -16,8 +16,8 @@
     "typecheck": "tsc --noEmit",
     "homepage": "None",
     "predeploy": "rm -rf node_modules/.cache/gh-pages",
-    "deploy": "rm -r public & yarn run build && gh-pages -d public -b gh-pages -r https://granular-rl.github.io/",
-    "deploy-ssh": "rm -rf public && yarn run build && GIT_SSH_COMMAND='ssh -i ~/.ssh/id_ed25519_granular-rl.pub -o IdentitiesOnly=yes' gh-pages -d public -b gh-pages -r git@github.com:granular-rl/granular-rl.github.io.git",
+    "deploy": "rm -r public & yarn run build && gh-pages -d public -b gh-pages -r https://github.com/benediktkreis/granular_rl.git",
+    "deploy-ssh": "rm -rf public && yarn run build && GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa.pub -o IdentitiesOnly=yes' gh-pages -d public -b gh-pages -r git@github.com:benediktkreis/granular_rl.git",
     "staging": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages"
   },
   "dependencies": {
