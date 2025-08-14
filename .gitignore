@@ -1,3 +1,4 @@
+.cache
 public
 yarn.lock
 package-lock.json
