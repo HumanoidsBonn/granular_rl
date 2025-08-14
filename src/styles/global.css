@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import custom font */
+@import url('https://rsms.me/inter/inter.css');
+
+/* Smooth scroll behavior for the entire document */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Set the default font family for the body */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Styling for anchor links globally */
+a {
+    position: relative;
+    text-decoration: none; /* Remove default underline for links */
+}
+
+/* Adding an underline effect on hover with a smooth transition */
+a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    opacity: 0;
+    height: 1px;
+    background-color: currentColor; /* Uses the current text color */
+    transition: opacity 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Underline becomes visible on hover */
+a:hover::after {
+    opacity: 1;
+}
+
+/* Utility for links with small underline offset */
+.underline-offset-small::after {
+    bottom: 6px; /* Adjust the offset for the underline */
+}
+
+/* Utility to remove the underline effect */
+.no-underline-effect::after {
+    content: none; /* Completely removes the underline */
+}
