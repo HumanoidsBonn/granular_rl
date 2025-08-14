@@ -63,7 +63,7 @@ const IndexPage: React.FC<PageProps> = () => {
                         arxivUrl=""
                         pdfUrl=""
                         otherUrls={[
-                            ["/bibtex.txt", "BibTex"],
+                            ["/granular_rl/bibtex.txt", "BibTex"],
                             ["https://github.com/HumanoidsBonn/granular_rl", "Code"],
                             // ["", "Video"]
                         ]}
@@ -82,7 +82,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
                     {/* Teaser Video */}
                     <video autoPlay controls muted playsInline loop alt="Teaser Video" className="border-2 border-slate-100 mt-0 rounded-xl mx-auto max-w-[100%] sm:max-w-[90%]">
-                        <source src="/videos/teaser.mp4" type="video/mp4"/>
+                        <source src="/granular_rl/videos/teaser.mp4" type="video/mp4"/>
                     </video>
 
                     <VideoGrid
@@ -90,10 +90,10 @@ const IndexPage: React.FC<PageProps> = () => {
                     text="Our approach demonstrates reliable manipulation of the granular medium with a wide range of goal shapes. In the end of each run, the desired goal shape is visible within the medium.
                     The videos show the simulated render view (left), the reconstructed height map (center), and the goal height map (right)."
                     items={[
-                        { video: "/videos/sim_rectangle_combined.mp4", label: "Rectangle" },
-                        { video: "/videos/sim_trench_combined.mp4", label: "Long rectangle" },
-                        { video: "/videos/sim_L_combined.mp4", label: "L-shape" },
-                        { video: "/videos/sim_fresco_combined.mp4", label: "Fresco fragment" },
+                        { video: "/granular_rl/videos/sim_rectangle_combined.mp4", label: "Rectangle" },
+                        { video: "/granular_rl/videos/sim_trench_combined.mp4", label: "Long rectangle" },
+                        { video: "/granular_rl/videos/sim_L_combined.mp4", label: "L-shape" },
+                        { video: "/granular_rl/videos/sim_fresco_combined.mp4", label: "Fresco fragment" },
                     ]}
                     scale={0.3}
                     />
@@ -103,7 +103,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     text="Deployed to the real robotic system, our approach successfully creates the desired goal shape in the granular medium.
                     The video shows an external camera view (left), the reconstructed height map (center), and the goal height map (right)."
                     items={[
-                        { video: "/videos/real_trench_combined.mp4", label: "Long rectangle" },
+                        { video: "/granular_rl/videos/real_trench_combined.mp4", label: "Long rectangle" },
                     ]}
                     scale={0.1}
                     />
@@ -116,19 +116,19 @@ const IndexPage: React.FC<PageProps> = () => {
                     items={
                         [
                         {
-                            urls: ['/models/rectangle_pcd_goal.ply', '/models/rectangle_pcd_achieved.ply'],
+                            urls: ['/granular_rl/models/rectangle_pcd_goal.ply', '/granular_rl/models/rectangle_pcd_achieved.ply'],
                             label: 'Rectangle',
                         },
                         {
-                            urls: ['/models/trench_pcd_goal.ply', '/models/trench_pcd_achieved.ply'],
+                            urls: ['/granular_rl/models/trench_pcd_goal.ply', '/granular_rl/models/trench_pcd_achieved.ply'],
                             label: 'Long rectangle',
                         },
                         {
-                            urls: ['/models/L_pcd_goal.ply', '/models/L_pcd_achieved.ply'],
+                            urls: ['/granular_rl/models/L_pcd_goal.ply', '/granular_rl/models/L_pcd_achieved.ply'],
                             label: 'L-shape',
                         },
                         {
-                            urls: ['/models/fragment_pcd_goal.ply', '/models/fragment_pcd_achieved.ply'],
+                            urls: ['/granular_rl/models/fragment_pcd_goal.ply', '/granular_rl/models/fragment_pcd_achieved.ply'],
                             label: 'Fresco fragment',
                         },
                         ]
