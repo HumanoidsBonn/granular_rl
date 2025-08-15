@@ -2,7 +2,7 @@ import Heading from "./Heading";
 import { LuCopy, LuCopyCheck } from 'react-icons/lu';
 import React, { useEffect, useState } from "react";
 import { useTextColors, hexToRgba } from './ColorContext';
-
+import { withPrefix } from "gatsby";
 
 const Citation: React.FC = ({}) => {
     const { textColor, linkColor } = useTextColors();
@@ -12,7 +12,7 @@ const Citation: React.FC = ({}) => {
     const backgroundColor = hexToRgba(linkColor, 0.05);
 
     useEffect(() => {
-        fetch("/bibtex.txt")
+        fetch(withPrefix("/bibtex.txt"))
             .then((response) => response.text())
             .then((data) => setBibtex(data))
             .catch((error) => console.error("Error loading BibTeX file:", error));

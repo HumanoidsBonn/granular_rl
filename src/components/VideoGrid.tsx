@@ -60,7 +60,7 @@ const VideoGrid: React.FC<VideoGridProps> = ({
             >
               <video
                 ref={el => (refs.current[i] = el)}
-                src={item.video}
+                src={item.video} type="video/mp4"
                 autoPlay
                 controls
                 muted

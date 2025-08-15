@@ -3,9 +3,9 @@ import type {GatsbyConfig} from "gatsby";
 const config: GatsbyConfig = {
     siteMetadata: {
         title: `Interactive Shaping of Granular Media with Reinforcement Learning`,
-        siteUrl: `https://humanoidsbonn.github.io/granular_rl/`,
+        siteUrl: `https://humanoidsbonn.github.io`,
     },
-    pathPrefix: "/",
+    pathPrefix: "/granular_rl",
     graphqlTypegen: true,
     plugins: [
         "gatsby-plugin-postcss",

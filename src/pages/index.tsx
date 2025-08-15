@@ -13,6 +13,7 @@ import Title from "../components/Title"
 import VideoGrid from "../components/VideoGrid"
 import PlyViewer from '../components/PlyViewer';
 import PlyGrid, { PlyItem } from '../components/PlyGrid';
+import { withPrefix } from "gatsby";
 
 
 const Article: React.FC = ({children}) => {
@@ -57,15 +58,14 @@ const IndexPage: React.FC<PageProps> = () => {
                     <div className="flex flex-wrap justify-center text-base mb-4 mt-0 leading-none">
                         IEEE-RAS International Conference on Humanoid Robots (Humanoids), 2025
                     </div>
-
+                    
                     {/*/!* Links *!/*/}
                     <LinkGroup
-                        arxivUrl=""
-                        pdfUrl=""
+                        arxivUrl={withPrefix("/")}
+                        pdfUrl={withPrefix("/")}
                         otherUrls={[
-                            ["/granular_rl/bibtex.txt", "BibTex"],
-                            ["https://github.com/HumanoidsBonn/granular_rl", "Code"],
-                            // ["", "Video"]
+                            [withPrefix("/bibtex.txt"), "BibTex"],
+                            ["https://github.com/HumanoidsBonn", "Code"]
                         ]}
                     >
                     </LinkGroup>
@@ -82,7 +82,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
                     {/* Teaser Video */}
                     <video autoPlay controls muted playsInline loop alt="Teaser Video" className="border-2 border-slate-100 mt-0 rounded-xl mx-auto max-w-[100%] sm:max-w-[90%]">
-                        <source src="/granular_rl/videos/teaser.mp4" type="video/mp4"/>
+                        <source src={withPrefix("/videos/teaser.mp4")} type="video/mp4"/>
                     </video>
 
                     <VideoGrid
@@ -90,10 +90,10 @@ const IndexPage: React.FC<PageProps> = () => {
                     text="Our approach demonstrates reliable manipulation of the granular medium with a wide range of goal shapes. In the end of each run, the desired goal shape is visible within the medium.
                     The videos show the simulated render view (left), the reconstructed height map (center), and the goal height map (right)."
                     items={[
-                        { video: "/granular_rl/videos/sim_rectangle_combined.mp4", label: "Rectangle" },
-                        { video: "/granular_rl/videos/sim_trench_combined.mp4", label: "Long rectangle" },
-                        { video: "/granular_rl/videos/sim_L_combined.mp4", label: "L-shape" },
-                        { video: "/granular_rl/videos/sim_fresco_combined.mp4", label: "Fresco fragment" },
+                        { video: withPrefix("/videos/sim_rectangle_combined.mp4"), label: "Rectangle" },
+                        { video: withPrefix("/videos/sim_trench_combined.mp4"), label: "Long rectangle" },
+                        { video: withPrefix("/videos/sim_L_combined.mp4"), label: "L-shape" },
+                        { video: withPrefix("/videos/sim_fresco_combined.mp4"), label: "Fresco fragment" },
                     ]}
                     scale={0.3}
                     />
@@ -103,7 +103,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     text="Deployed to the real robotic system, our approach successfully creates the desired goal shape in the granular medium.
                     The video shows an external camera view (left), the reconstructed height map (center), and the goal height map (right)."
                     items={[
-                        { video: "/granular_rl/videos/real_trench_combined.mp4", label: "Long rectangle" },
+                        { video: withPrefix("/videos/real_trench_combined.mp4"), label: "Long rectangle" },
                     ]}
                     scale={0.1}
                     />
@@ -116,46 +116,25 @@ const IndexPage: React.FC<PageProps> = () => {
                     items={
                         [
                         {
-                            urls: ['/granular_rl/models/rectangle_pcd_goal.ply', '/granular_rl/models/rectangle_pcd_achieved.ply'],
+                            urls: [withPrefix('/models/rectangle_pcd_goal.ply'), withPrefix('/models/rectangle_pcd_achieved.ply')],
                             label: 'Rectangle',
                         },
                         {
-                            urls: ['/granular_rl/models/trench_pcd_goal.ply', '/granular_rl/models/trench_pcd_achieved.ply'],
+                            urls: [withPrefix('/models/trench_pcd_goal.ply'), withPrefix('/models/trench_pcd_achieved.ply')],
                             label: 'Long rectangle',
                         },
                         {
-                            urls: ['/granular_rl/models/L_pcd_goal.ply', '/granular_rl/models/L_pcd_achieved.ply'],
+                            urls: [withPrefix('/models/L_pcd_goal.ply'), withPrefix('/models/L_pcd_achieved.ply')],
                             label: 'L-shape',
                         },
                         {
-                            urls: ['/granular_rl/models/fragment_pcd_goal.ply', '/granular_rl/models/fragment_pcd_achieved.ply'],
+                            urls: [withPrefix('/models/fragment_pcd_goal.ply'), withPrefix('/models/fragment_pcd_achieved.ply')],
                             label: 'Fresco fragment',
                         },
                         ]
                     }
                     cellSize={360}
                     />
-                    
-                    {/* Carousel */}
-                    {/* <CarouselComponent
-                        heading={"Simulation Deployment"}
-                        items={[
-                            { video: "/videos/teaser.mp4", label: "Fresco Fragment" },
-                            { video: "/videos/teaser.mp4", label: "Fresco Fragment" },
-                            { video: "/videos/teaser.mp4", label: "Fresco Fragment" },
-                            { video: "/videos/teaser.mp4", label: "Fresco Fragment" },
-                        ]}
-                    /> */}
-
-                    {/* Long Video */}
-                    {/* <Heading>Video</Heading>
-                    <div className="flex justify-left text-base">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                        At vero eos et accusam et justo duo dolores et ea rebum.
-                    </div>
-                    <video controls muted loop alt="Long Video" className="border-2 border-slate-100 mt-4 rounded-xl mx-auto max-w-[100%] sm:max-w-[75%]">
-                        <source src="/videos/teaser.mp4" type="video/mp4"/>
-                    </video> */}
 
                     {<Citation/>}
 
