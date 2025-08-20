@@ -13,7 +13,7 @@ const LinkGroup: React.FC<LinksProps> = ({ arxivUrl, pdfUrl, otherUrls }) => {
     const { textColor, linkColor } = useTextColors();
     return (
         <div className="flex justify-center mt-4 mb-12">
-            <PaperDropdown arxivUrl={arxivUrl} pdfUrl={pdfUrl} />
+            {/* <PaperDropdown arxivUrl={arxivUrl} pdfUrl={pdfUrl} /> */}
 
             {otherUrls.map(([url, text], index) => (
                 <a href={url}

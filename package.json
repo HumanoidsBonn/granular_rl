@@ -14,10 +14,9 @@
     "serve": "gatsby serve --prefix-paths",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "homepage": "None",
     "predeploy": "rm -rf node_modules/.cache/gh-pages",
     "deploy": "rm -r public & gatsby build --prefix-paths && gh-pages -d public -b gh-pages -r https://github.com/benediktkreis/granular_rl.git",
-    "deploy-ssh": "rm -rf public && gatsby clean && NODE_ENV=production GATSBY_ACTIVE_ENV=production gatsby build --prefix-paths && GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa.pub -o IdentitiesOnly=yes' gh-pages -d public -b gh-pages -r git@github.com:benediktkreis/granular_rl.git",
+    "deploy-ssh": "rm -rf public && gatsby clean && PREFIX_PATHS=1 NODE_ENV=production GATSBY_ACTIVE_ENV=production gatsby build --prefix-paths && GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa.pub -o IdentitiesOnly=yes' gh-pages -d public -b gh-pages -r git@github.com:benediktkreis/granular_rl.git",
     "staging": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages"
   },
   "resolutions": {

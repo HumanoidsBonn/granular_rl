@@ -1,5 +1,5 @@
 import * as React from "react"
-import type {HeadFC, PageProps} from "gatsby"
+import { withPrefix, type HeadFC, type PageProps } from "gatsby";
 import Abstract from "../components/Abstract"
 import Affiliation from "../components/Affiliation";
 import Author from "../components/Author";
@@ -13,7 +13,6 @@ import Title from "../components/Title"
 import VideoGrid from "../components/VideoGrid"
 import PlyViewer from '../components/PlyViewer';
 import PlyGrid, { PlyItem } from '../components/PlyGrid';
-import { withPrefix } from "gatsby";
 
 
 const Article: React.FC = ({children}) => {
@@ -26,13 +25,13 @@ const Article: React.FC = ({children}) => {
     )
 }
 
-
 export const Head: HeadFC = () => <title>Interactive Shaping of Granular Media with Reinforcement Learning</title>
 
 const IndexPage: React.FC<PageProps> = () => {
     return (
         <div>
             <main className="">
+                
                 <Article>
                     {/* Title */}
                     <Title>Interactive Shaping of Granular Media with Reinforcement Learning</Title>
@@ -61,11 +60,12 @@ const IndexPage: React.FC<PageProps> = () => {
                     
                     {/*/!* Links *!/*/}
                     <LinkGroup
-                        arxivUrl={withPrefix("/")}
-                        pdfUrl={withPrefix("/")}
+                        arxivUrl={"https://www.hrl.uni-bonn.de/publications/2025/granular_rl"}
+                        pdfUrl={"https://www.hrl.uni-bonn.de/publications/2025/granular_rl"}
                         otherUrls={[
-                            [withPrefix("/bibtex.txt"), "BibTex"],
-                            ["https://github.com/HumanoidsBonn", "Code"]
+                            ["https://www.hrl.uni-bonn.de/publications/2025/granular_rl", "Paper"],
+                            [withPrefix("./bibtex.txt"), "BibTex"],
+                            ["https://github.com/HumanoidsBonn/granular_rl", "Code"]
                         ]}
                     >
                     </LinkGroup>
@@ -75,14 +75,14 @@ const IndexPage: React.FC<PageProps> = () => {
                         Autonomous manipulation of granular media, such as sand, is crucial for applications in construction, excavation, and additive manufacturing.
                         However, shaping granular materials presents unique challenges due to their high-dimensional configuration space and complex dynamics, where traditional rule-based approaches struggle without extensive engineering efforts.
                         Reinforcement learning (RL) offers a promising alternative by enabling agents to learn adaptive manipulation strategies through trial and error.
-                        In this work, we present an RL framework that enables a robotic arm with a cubic end-effector to shape granular media into desired structures, outperforming two baseline approaches.
-                        We show the importance of compact observations and concise reward formulations for the large configuration space, validating our design choices with a rigorous ablation study of our feature extractor and the selection of RL algorithm.
-                        Our results demonstrate the effectiveness of the proposed approach for the training of visual policies that manipulate granular media including their real-world deployment.
+                        In this work, we present an RL framework that enables a robotic arm with a cubic end-effector and a stereo camera to shape granular media into desired target structures.
+                        We show the importance of compact observations and concise reward formulations for the large configuration space, validating our design choices with an ablation study.
+                        Our results demonstrate the effectiveness of the proposed approach for the training of visual policies that manipulate granular media including their real-world deployment, outperforming two baseline approaches.
                     </Abstract>
 
                     {/* Teaser Video */}
                     <video autoPlay controls muted playsInline loop alt="Teaser Video" className="border-2 border-slate-100 mt-0 rounded-xl mx-auto max-w-[100%] sm:max-w-[90%]">
-                        <source src={withPrefix("/videos/teaser.mp4")} type="video/mp4"/>
+                        <source src={withPrefix("./videos/teaser.mp4")} type="video/mp4"/>
                     </video>
 
                     <VideoGrid
@@ -90,12 +90,12 @@ const IndexPage: React.FC<PageProps> = () => {
                     text="Our approach demonstrates reliable manipulation of the granular medium with a wide range of goal shapes. In the end of each run, the desired goal shape is visible within the medium.
                     The videos show the simulated render view (left), the reconstructed height map (center), and the goal height map (right)."
                     items={[
-                        { video: withPrefix("/videos/sim_rectangle_combined.mp4"), label: "Rectangle" },
-                        { video: withPrefix("/videos/sim_trench_combined.mp4"), label: "Long rectangle" },
-                        { video: withPrefix("/videos/sim_L_combined.mp4"), label: "L-shape" },
-                        { video: withPrefix("/videos/sim_fresco_combined.mp4"), label: "Fresco fragment" },
+                        { video: "./videos/sim_rectangle_combined.mp4", label: "Rectangle" },
+                        { video: "./videos/sim_trench_combined.mp4", label: "Long rectangle" },
+                        { video: "./videos/sim_L_combined.mp4", label: "L-shape" },
+                        { video: "./videos/sim_fresco_combined.mp4", label: "Fresco fragment" },
                     ]}
-                    scale={0.3}
+                    scale={0.5}
                     />
 
                     <VideoGrid
@@ -103,12 +103,12 @@ const IndexPage: React.FC<PageProps> = () => {
                     text="Deployed to the real robotic system, our approach successfully creates the desired goal shape in the granular medium.
                     The video shows an external camera view (left), the reconstructed height map (center), and the goal height map (right)."
                     items={[
-                        { video: withPrefix("/videos/real_trench_combined.mp4"), label: "Long rectangle" },
+                        { video: "./videos/real_trench_combined.mp4", label: "Long rectangle" },
                     ]}
-                    scale={0.1}
+                    scale={0.5}
                     />
 
-                    <PlyGrid
+                    {/* <PlyGrid
                     heading="Qualitative Experimental Results"
                     text="Explore the resulting shapes within the goal area of the granular medium.
                         The goal height maps (blue) and the achieved height maps (gray) are rendered as point clouds.
@@ -116,19 +116,19 @@ const IndexPage: React.FC<PageProps> = () => {
                     items={
                         [
                         {
-                            urls: [withPrefix('/models/rectangle_pcd_goal.ply'), withPrefix('/models/rectangle_pcd_achieved.ply')],
+                            urls: ['./models/rectangle_pcd_goal.ply', './models/rectangle_pcd_achieved.ply'],
                             label: 'Rectangle',
                         },
                         {
-                            urls: [withPrefix('/models/trench_pcd_goal.ply'), withPrefix('/models/trench_pcd_achieved.ply')],
+                            urls: ['./models/trench_pcd_goal.ply', './models/trench_pcd_achieved.ply'],
                             label: 'Long rectangle',
                         },
                         {
-                            urls: [withPrefix('/models/L_pcd_goal.ply'), withPrefix('/models/L_pcd_achieved.ply')],
+                            urls: ['./models/L_pcd_goal.ply', './models/L_pcd_achieved.ply'],
                             label: 'L-shape',
                         },
                         {
-                            urls: [withPrefix('/models/fragment_pcd_goal.ply'), withPrefix('/models/fragment_pcd_achieved.ply')],
+                            urls: ['./models/fragment_pcd_goal.ply', './models/fragment_pcd_achieved.ply'],
                             label: 'Fresco fragment',
                         },
                         ]
@@ -136,7 +136,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     cellSize={360}
                     />
 
-                    {<Citation/>}
+                    {<Citation/>} */}
 
                     </Article>
 
