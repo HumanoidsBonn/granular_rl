@@ -1,6 +1,6 @@
 # Interactive Shaping of Granular Media Using Reinforcement Learning
 
-<a href="https://granular-rl.github.io/"><img alt="cover" src="docs/images/cover.png" width="50%"/></a>
+<a href="https://humanoidsbonn.github.io/granular_rl/"><img alt="cover" src="docs/images/cover.png" width="50%"/></a>
 
 This repository contains the accompanying code for the paper "Interactive Shaping of Granular Media with Reinforcement Learning" by B. Kreis, M. Mosbach, A. Ripke, M. E. Ullah, S. Behnke, M. Bennewitz accepted to the IEEE-RAS International Conference on Humanoid Robots (Humanoids).
 
